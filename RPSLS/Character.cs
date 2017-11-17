@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,9 @@ namespace RPSLS
         public string badInput = "bad";
         public bool winRound = false;
 
-        public virtual string GetInput()
+        public virtual string GetRPSLS()
         {
-            userInput = Console.ReadKey().Key.ToString();
+            userInput = Console.ReadKey().Key.ToString().ToLower();
             return userInput;
         }
         public void CheckRock()

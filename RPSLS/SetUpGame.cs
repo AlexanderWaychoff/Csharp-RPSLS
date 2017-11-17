@@ -8,21 +8,17 @@ namespace RPSLS
 {
     class SetUpGame
     {
-        public string decideOpponent;
-        Player player1 = new Player();
+        private string decideOpponent;
+        private string player2Name;
         PlayGame newGame = new PlayGame();
-        //decideOpponent = newGame.testFunction();
         public SetUpGame()
         {
-            decideOpponent = newGame.AskForOpponent();
-            if (decideOpponent == "y")
-            {
-                Player player2 = new Player();
-            }
-            else
-            {
-                Computer computer = new Computer();
-            }
+            newGame.DisplayRules();
+            player2Name = newGame.CheckPlayer2();
+            newGame.DisplayMatch(player2Name);
+
+            //newGame.callforUserInput
+            
         }
         
     }

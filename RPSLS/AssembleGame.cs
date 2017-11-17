@@ -12,6 +12,11 @@ namespace RPSLS
         public string userInput;
         public string question;
         public bool checkCorrectInput = false;
+
+        public void DisplayRules()
+        {
+            Console.WriteLine("Rules go here eventually \n");
+        }
         public string AskForOpponent()
         {
             userInput = VerifyInput("Are you playing against another human?  Type 'y' or type 'n' to play against a computer.");
@@ -34,6 +39,10 @@ namespace RPSLS
             }
             while (!(userInput == "y" || userInput == "n"));
             return userInput;
+        }
+        public void DisplayMatch(string player2Name)
+        {
+            Console.WriteLine("The match between Player 1 and {0} will now begin.", player2Name);
         }
     }
 }

@@ -9,8 +9,9 @@ namespace RPSLS
     public class Computer : Character
     {
         //have computer randomly input what they're doing, send to PlayGame to compare to player for scoring
-        public override string GetInput()
+        public override string GetRPSLS()
         {
+            //Math.Ran
             //override because it's not using Console.ReadKey
             return "remove later";
         }
