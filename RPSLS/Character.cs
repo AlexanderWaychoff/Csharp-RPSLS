@@ -10,18 +10,20 @@ namespace RPSLS
     public class Character
     {
         public string userInput;
-        public string rock = "rock";
+        public const string rock = "rock";
         public string rockKey = "r";
-        public string paper = "paper";
+        public const string paper = "paper";
         public string paperKey = "p";
-        public string scissors = "scissors";
+        public const string scissors = "scissors";
         public string scissorsKey = "c";
-        public string lizard = "lizard";
+        public const string lizard = "lizard";
         public string lizardKey = "l";
-        public string spock = "spock";
+        public const string spock = "spock";
         public string spockKey = "s";
-        public string badInput = "bad";
+        public const string badInput = "bad";
         public bool winRound = false;
+
+        public string[] arrayRPSLS = new string[] {rock, paper, scissors, lizard, spock};
 
         public virtual string GetRPSLS()
         {

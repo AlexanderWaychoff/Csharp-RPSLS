@@ -12,6 +12,10 @@ namespace RPSLS
 
         private string decideOpponent;
         private string player2Name;
+        private int player1Score;
+        private int player2Score;
+        private int roundCount;
+        
 
         public PlayGame()
         {
@@ -27,9 +31,22 @@ namespace RPSLS
             }
             else
             {
-                Computer computer = new Computer();
+                Computer opponentAI = new Computer();
                 return player2Name = "Computer";
             }
+        }
+
+        public string GetComputerInput()
+        {
+            
+            //GetRPSLS();
+            return "delete later";
+        }
+
+        public int GetScore()
+        {
+            base.DisplayScore(player1Score, player2Score, player2Name);
+            return 0;
         }
     }
     //get user input, compare it to player2/computer and declare who wins the round.  Declare winner after 3 rounds.

@@ -42,7 +42,21 @@ namespace RPSLS
         }
         public void DisplayMatch(string player2Name)
         {
-            Console.WriteLine("The match between Player 1 and {0} will now begin.", player2Name);
+            Console.WriteLine("The match between Player 1 and {0} will now begin.  Press any key to continue.", player2Name);
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public void DisplayScore(int player1Score, int player2Score, string player2Name)
+        {
+            Console.WriteLine("Player 1's score is {0}.  {1}'s score is {2}", player1Score, player2Name, player2Score);
+        }
+        public void AskPlayer2Input(string player2Name)
+        {
+            Console.WriteLine("{0} enter your choice.  Player 1 will go next.", player2Name);
+        }
+        public void DisplayPlayerInput(string player2Name)
+        {
+            Console.WriteLine("{0} has entered their choice.  Player 1 enter which option you will go with?", player2Name);
         }
     }
 }
