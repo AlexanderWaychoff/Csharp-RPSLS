@@ -9,6 +9,8 @@ namespace RPSLS
     public class PlayGame : AssembleGame
     {
         Player player1 = new Player();
+        Player player2 = new Player();
+        Computer opponentAI = new Computer();
 
         private string decideOpponent;
         private string player2Name;
@@ -26,21 +28,26 @@ namespace RPSLS
             decideOpponent = base.AskForOpponent();
             if (decideOpponent == "y")
             {
-                Player player2 = new Player();
+                //Player player2 = new Player();
                 return player2Name = "Player 2";
             }
             else
             {
-                Computer opponentAI = new Computer();
+                //Computer opponentAI = new Computer();
                 return player2Name = "Computer";
             }
         }
 
         public string GetComputerInput()
         {
-            
-            //GetRPSLS();
-            return "delete later";
+            string computerRPSLS = opponentAI.GetRPSLS();
+            Console.WriteLine("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", opponentAI.rockKey, opponentAI.arrayRPSLS[0], opponentAI.paperKey, opponentAI.arrayRPSLS[1], opponentAI.scissorsKey, opponentAI.arrayRPSLS[2], opponentAI.lizardKey, opponentAI.arrayRPSLS[3], opponentAI.spockKey, opponentAI.arrayRPSLS[4]);
+            return computerRPSLS;
+        }
+        public string GetPlayer1Input()
+        {
+            player1.CheckRPSLS();
+            return "q";
         }
 
         public int GetScore()

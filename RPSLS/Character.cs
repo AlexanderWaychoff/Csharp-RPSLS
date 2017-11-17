@@ -11,24 +11,29 @@ namespace RPSLS
     {
         public string userInput;
         public const string rock = "rock";
-        public string rockKey = "r";
+        public string rockKey = "1";
         public const string paper = "paper";
-        public string paperKey = "p";
+        public string paperKey = "2";
         public const string scissors = "scissors";
-        public string scissorsKey = "c";
+        public string scissorsKey = "3";
         public const string lizard = "lizard";
-        public string lizardKey = "l";
+        public string lizardKey = "4";
         public const string spock = "spock";
-        public string spockKey = "s";
+        public string spockKey = "5";
         public const string badInput = "bad";
         public bool winRound = false;
+        public bool checkCorrectInput;
 
         public string[] arrayRPSLS = new string[] {rock, paper, scissors, lizard, spock};
+        //try and see if this can be used instead of hardcoding: public string instructions = string.Format("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", rockKey, arrayRPSLS[0], paperKey, arrayRPSLS[1], scissorsKey, arrayRPSLS[2], lizardKey, arrayRPSLS[3], spockKey, arrayRPSLS[4]);
 
         public virtual string GetRPSLS()
         {
-            userInput = Console.ReadKey().Key.ToString().ToLower();
+
+            //userInput = Console.ReadKey().Key.ToString().ToLower();
+            userInput = CheckRPSLS(); //("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", rockKey, arrayRPSLS[0], paperKey, arrayRPSLS[1], scissorsKey, arrayRPSLS[2], lizardKey, arrayRPSLS[3], spockKey, arrayRPSLS[4])
             return userInput;
+            
         }
         public void CheckRock()
         {
@@ -40,6 +45,25 @@ namespace RPSLS
             {
                 Console.WriteLine("{1} beats {0}.  {2} scores this round.", paper, rock, "player");
             }
+        }
+        public string CheckRPSLS()
+        {
+            string question = "1 = rock; 2 = paper; 3 = scissors; 4 = lizard; 5 = spock\n";
+            checkCorrectInput = false;
+            do
+            {
+                if (checkCorrectInput)
+                {
+                    Console.WriteLine("\n**Your input wasn't valid, please type exactly as indicated.**\n");
+                }
+                Console.WriteLine(question);
+                char userInput = Console.ReadKey(true).KeyChar;
+                Console.WriteLine(userInput);
+                checkCorrectInput = true;
+            }
+            while (!(userInput == "0" || userInput == "1" || userInput == "2" || userInput == "3" || userInput == "4"));
+            return userInput;
+        
         }
     }
 }

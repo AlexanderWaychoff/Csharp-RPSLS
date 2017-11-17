@@ -23,15 +23,17 @@ namespace RPSLS
         }
         public void StartGame(string player2Name)
         {
+            string opponentInput;
             if(player2Name == "Computer")
             {
-                newGame.GetComputerInput();
+                opponentInput = newGame.GetComputerInput();
                 newGame.DisplayPlayerInput(player2Name);
             }
             else
             {
                 newGame.AskPlayer2Input(player2Name);
             }
+            newGame.GetPlayer1Input();
         }
         
     }

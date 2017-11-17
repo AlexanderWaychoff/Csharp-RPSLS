@@ -34,7 +34,6 @@ namespace RPSLS
                 }
                 Console.WriteLine(question);
                 userInput = Console.ReadKey().Key.ToString().ToLower();
-                Console.WriteLine(userInput);
                 checkCorrectInput = true;
             }
             while (!(userInput == "y" || userInput == "n"));
@@ -56,7 +55,7 @@ namespace RPSLS
         }
         public void DisplayPlayerInput(string player2Name)
         {
-            Console.WriteLine("{0} has entered their choice.  Player 1 enter which option you will go with?", player2Name);
+            Console.WriteLine("{0} has entered their choice.  Player 1 which option you will go with?", player2Name);
         }
     }
 }
