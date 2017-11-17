@@ -8,10 +8,11 @@ namespace RPSLS
 {
     public class Computer : Character
     {
+        //have computer randomly input what they're doing, send to PlayGame to compare to player for scoring
         public override string GetInput()
         {
             //override because it's not using Console.ReadKey
-            return spock;
+            return "remove later";
         }
 
 

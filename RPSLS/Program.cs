@@ -10,8 +10,7 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
-            PlayGame game = new PlayGame();
-            
+            SetUpGame game = new SetUpGame();
             Console.ReadKey();
         }
     }

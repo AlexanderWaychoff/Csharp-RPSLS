@@ -8,9 +8,11 @@ namespace RPSLS
 {
     public class PlayGame : AssembleGame
     {
-        Player player1 = new Player();
-        //player1.GetInput();
-        
+        public string testFunction()
+        {
+            return "remove later";
+        }
+        //get user input, compare it to player2/computer and declare who wins the round.  Declare winner after 3 rounds.
 
     }
 }
