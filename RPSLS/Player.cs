@@ -9,6 +9,6 @@ namespace RPSLS
     public class Player : Character
     {
 
-        base.GetInput();
+        
     }
 }

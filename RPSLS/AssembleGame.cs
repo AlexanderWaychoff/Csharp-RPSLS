@@ -13,23 +13,24 @@ namespace RPSLS
         public bool checkCorrectInput = false;
         public string AskForOpponent()
         {
-            userInput = VerifyInput("Are you playing against another human?  Type 'y' or type 'n' to play against a computer.", );
-            do
-            {
-                question = "Are you playing against another human?  Type 'y' or type 'n' to play against a computer.";
-                userInput = Console.ReadKey().Key.ToString();
-                if (checkCorrectInput)
-                {
-                    Console.WriteLine("Your input wasn't valid, please type exactly as indicated.");
-                }
-                checkCorrectInput = true;
-            }
-            while ();
+            userInput = VerifyInput("Are you playing against another human?  Type 'y' or type 'n' to play against a computer.");
             return "remove later";
         }
-        public string VerifyInput(string question, string userInput)
+        
+        public string VerifyInput(string question)
         {
-            Console.WriteLine(question);
+            checkCorrectInput = false;
+            do
+            {
+                if (checkCorrectInput)
+                {
+                    Console.WriteLine("\n**Your input wasn't valid, please type exactly as indicated.**\n");
+                }
+                Console.WriteLine(question);
+                userInput = Console.ReadKey().Key.ToString();
+                checkCorrectInput = true;
+            }
+            while (!(userInput == "y") || !(userInput == "n"));
             return userInput;
         }
     }

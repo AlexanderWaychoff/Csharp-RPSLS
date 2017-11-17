@@ -9,6 +9,8 @@ namespace RPSLS
     public class PlayGame : AssembleGame
     {
         Player player1 = new Player();
+        //player1.GetInput();
+        
 
     }
 }
