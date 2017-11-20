@@ -11,7 +11,9 @@ namespace RPSLS
         //private string decideOpponent;
         private string player1Name = "Player 1";
         private string player2Name;
-        private int roundCount = 0;
+        private string restartGame;
+        private bool isP1Winner;
+        private int roundCount = 3;
         private int determinedWinner;
         private int player1Score = 0;
         private int player2Score = 0;
@@ -24,35 +26,87 @@ namespace RPSLS
 
             StartGame(player2Name);
             //newGame.callforUserInput
-           
+
         }
         public void StartGame(string player2Name)
         {
-            string opponentInput;
-            if (roundCount <= 3)
+            for (int i = 1; i <= roundCount; i++)
             {
-                if (player2Name == "Computer")
+                string opponentInput;
+                if (i <= 3)
                 {
-                    opponentInput = newGame.GetComputerInput();
+                    if (player2Name == "Computer")
+                    {
+                        opponentInput = newGame.GetComputerInput();
+                    }
+                    else
+                    {
+                        opponentInput = newGame.GetPlayer2Input();
+                    }
+                    newGame.DisplayPlayerInput(player2Name);
+                    newGame.player1Input = newGame.GetPlayer1Input();
+                    determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, opponentInput, player1Name, player2Name);
+                    newGame.GetScore();
+
+                    if (determinedWinner == 2)
+                    {
+                        i -= 1;
+                    }
+                    else
+                    {
+                        isP1Winner = DecideScore(determinedWinner);
+                    }
+                    if (isP1Winner)
+                    {
+                        player1Score += 1;
+                    }
+                    else if (!(isP1Winner))
+                    {
+                        player2Score += 1;
+                    }
+
                 }
                 else
                 {
-                    opponentInput = newGame.GetPlayer2Input();
+                    if (isP1Winner)
+                    {
+                        player1Score += 1;
+                    }
+                    else
+                    {
+                        player2Score += 1;
+                    }
                 }
-                newGame.DisplayPlayerInput(player2Name);
-                newGame.player1Input = newGame.GetPlayer1Input();
-                determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, opponentInput, player1Name, player2Name);
-                newGame.GetScore();
-
-                if (determinedWinner > 0)
-                {
-                    roundCount += 1;
-                }
-                StartGame(player2Name);
+            }
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            if (player1Score > player2Score)
+            {
+                Console.WriteLine("{0} scored {1} and wins the set against {2}!", player1Name, player1Score, player2Name);
             }
             else
             {
-                //3 rounds have passed, declare winner
+                Console.WriteLine("{0} scored {1} and wins the set against {2}!", player2Name, player2Score, player1Name);
+            }
+            Console.WriteLine("Would you like to play again?  Enter 'y' for yes, or press any key to close the program.");
+            Console.ResetColor();
+            restartGame = Console.ReadKey().Key.ToString().ToLower();
+            if(restartGame == "y")
+            {
+                player1Score = 0;
+                player2Score = 0;
+                PlayGame newGame = new PlayGame();
+                SetUpGame setUpGame = new SetUpGame();
+            }
+        }
+        public bool DecideScore(int determinedWinner)
+        {
+            if(determinedWinner == 0)
+            {
+                return isP1Winner = true;
+            }
+            else
+            {
+                return isP1Winner = false;
             }
         }
         
