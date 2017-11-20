@@ -19,7 +19,6 @@ namespace RPSLS
         private string player2Name;
         private int player1Score;
         private int player2Score;
-        private int roundCount;
         
 
         public PlayGame()
@@ -68,16 +67,19 @@ namespace RPSLS
             {
                 declareWinner = 2;
             }
-            else if ((player1Input == "0" && (player2Input == "2" || player2Input == "3")) || (player1Input == "1" && (player2Input == "0" || player2Input == "4")) || (player1Input == "2" && (player2Input == "1" || player2Input == "4")) || (player1Input == "3" && (player2Input == "1" || player2Input == "4")) || (player1Input == "4" && (player2Input == "0" || player2Input == "2")))
+            else if ((player1Input == "0" && (player2Input == "2" || player2Input == "3")) || (player1Input == "1" && (player2Input == "0" || player2Input == "4")) || (player1Input == "2" && (player2Input == "1" || player2Input == "3")) || (player1Input == "3" && (player2Input == "1" || player2Input == "4")) || (player1Input == "4" && (player2Input == "0" || player2Input == "2")))
             {
                 declareWinner = 0;
+                player1Score += 1;
             }
             else
             {
                 declareWinner = 1;
+                player2Score += 1;
             }
 
             DeclarePlayerInputs(player1Index, player2Index, player1Name, player2Name, declareWinner);
+            GetScore();
             return declareWinner;
         }
         public void DeclarePlayerInputs(int player1Index, int player2Index, string player1Name, string player2Name, int declareWinner)
@@ -85,7 +87,7 @@ namespace RPSLS
             Console.WriteLine("{0} has played {1} \n \n **while** \n \n {2} has played {3}", player1Name, player1.arrayRPSLS[player1Index], player2Name, player1.arrayRPSLS[player2Index]);
             if (player1Index == player2Index)
             {
-                Console.WriteLine("Both players entered {0}.  No score was gained, this round will reset and play again.", player1.arrayRPSLS[player1Index]);
+                Console.WriteLine("\nBoth players entered {0}.  No score was gained, this round will reset and play again.", player1.arrayRPSLS[player1Index]);
             }
             else if (declareWinner == 1)
             {
@@ -96,12 +98,15 @@ namespace RPSLS
                 Console.WriteLine("\n{0} beats {1}.  {2} wins this round.", player1.arrayRPSLS[player2Index], player1.arrayRPSLS[player1Index], player2Name);
             }
         }
-        public int GetScore(int determinedWinner)
+        public int GetScore()
         {
             base.DisplayScore(player1Score, player2Score, player2Name);
+            Console.WriteLine("\n Press any key to continue.");
+            Console.ReadKey();
+            Console.Clear();
             return 0;
         }
     }
-    //get user input, compare it to player2/computer and declare who wins the round.  Declare winner after 3 rounds.
+    
 
 }

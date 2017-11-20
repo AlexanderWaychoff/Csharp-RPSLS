@@ -13,7 +13,7 @@ namespace RPSLS
 
         public override string GetRPSLS()
         {
-            computerChoice = randomInput.Next(4).ToString();
+            computerChoice = (randomInput.Next(4)+1).ToString();
             return computerChoice;
         }
 

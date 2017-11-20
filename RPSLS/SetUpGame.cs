@@ -42,7 +42,7 @@ namespace RPSLS
                 newGame.DisplayPlayerInput(player2Name);
                 newGame.player1Input = newGame.GetPlayer1Input();
                 determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, opponentInput, player1Name, player2Name);
-                newGame.GetScore(determinedWinner);
+                newGame.GetScore();
 
                 if (determinedWinner > 0)
                 {
