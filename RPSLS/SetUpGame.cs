@@ -11,6 +11,10 @@ namespace RPSLS
         //private string decideOpponent;
         private string player1Name = "Player 1";
         private string player2Name;
+        private int roundCount = 0;
+        private int determinedWinner;
+        private int player1Score = 0;
+        private int player2Score = 0;
         PlayGame newGame = new PlayGame();
         public SetUpGame()
         {
@@ -25,18 +29,31 @@ namespace RPSLS
         public void StartGame(string player2Name)
         {
             string opponentInput;
-            if(player2Name == "Computer")
+            if (roundCount <= 3)
             {
-                opponentInput = newGame.GetComputerInput();
-                //newGame.DisplayPlayerInput(player2Name);
+                if (player2Name == "Computer")
+                {
+                    opponentInput = newGame.GetComputerInput();
+                }
+                else
+                {
+                    newGame.player2Input = newGame.GetPlayer2Input();
+                }
+                newGame.DisplayPlayerInput(player2Name);
+                newGame.player1Input = newGame.GetPlayer1Input();
+                determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input, player1Name, player2Name);
+                newGame.GetScore(determinedWinner);
+
+                if (determinedWinner > 0)
+                {
+                    roundCount += 1;
+                }
+                StartGame(player2Name);
             }
             else
             {
-                newGame.player2Input = newGame.GetPlayer2Input();
+                //3 rounds have passed, declare winner
             }
-            newGame.DisplayPlayerInput(player2Name);
-            newGame.player1Input = newGame.GetPlayer1Input();
-            newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input, player1Name, player2Name);
         }
         
     }
