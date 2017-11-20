@@ -30,12 +30,10 @@ namespace RPSLS
             decideOpponent = base.AskForOpponent();
             if (decideOpponent == "y")
             {
-                //Player player2 = new Player();
                 return player2Name = "Player 2";
             }
             else
             {
-                //Computer opponentAI = new Computer();
                 return player2Name = "Computer";
             }
         }
@@ -43,7 +41,6 @@ namespace RPSLS
         public string GetComputerInput()
         {
             string computerRPSLS = opponentAI.GetRPSLS();
-            //Console.WriteLine("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", opponentAI.rockKey, opponentAI.arrayRPSLS[0], opponentAI.paperKey, opponentAI.arrayRPSLS[1], opponentAI.scissorsKey, opponentAI.arrayRPSLS[2], opponentAI.lizardKey, opponentAI.arrayRPSLS[3], opponentAI.spockKey, opponentAI.arrayRPSLS[4]);
             return computerRPSLS;
         }
         public string GetPlayer1Input()
@@ -61,24 +58,9 @@ namespace RPSLS
         {
             player1Index = int.Parse(player1Input) - 1;
             player2Index = int.Parse(player2Input) - 1;
-            int declareWinner = 0; //0 = player 1 win; 1 = player 2 win; 2 = tie;
+            int declareWinner = 0; 
 
             declareWinner = (5 + player1Index - player2Index) % 5;
-
-            //if (player1Index == player2Index)
-            //{
-            //    declareWinner = 2;
-            //}
-            //else if ((player1Index == 0 && (player2Index == 2 || player2Index == 3)) || (player1Index == 1 && (player2Index == 0 || player2Index == 4)) || (player1Index == 2 && (player2Index == 1 || player2Index == 3)) || (player1Index == 3 && (player2Index == 1 || player2Index == 4)) || (player1Index == 4 && (player2Index == 0 || player2Index == 2)))
-            //{
-            //    declareWinner = 0;
-            //    player1Score += 1;
-            //}
-            //else
-            //{
-            //    declareWinner = 1;
-            //    player2Score += 1;
-            //}
 
             DeclarePlayerInputs(player1Index, player2Index, player1Name, player2Name, declareWinner);
             return declareWinner;

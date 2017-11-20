@@ -8,7 +8,6 @@ namespace RPSLS
 {
     class SetUpGame
     {
-        //private string decideOpponent;
         private string player1Name = "Player 1";
         private string player2Name;
         private string restartGame;
@@ -25,8 +24,6 @@ namespace RPSLS
             newGame.DisplayMatch(player2Name);
 
             StartGame(player2Name);
-            //newGame.callforUserInput
-
         }
         public void StartGame(string player2Name)
         {

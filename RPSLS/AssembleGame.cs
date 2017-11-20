@@ -16,7 +16,9 @@ namespace RPSLS
 
         public void DisplayRules()
         {
-            Console.WriteLine("Rules go here eventually \n");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock!\n\n It's an advanced version of Rock, Paper Scissors where each gesture beats 2 of the others, but also loses to 2.\n\nRock beats Scissors and Lizard\nPaper beats Rock and Spock\nScissors beats Paper and Lizard\nLizard beats Paper and Spock\nand Spock beats Rock and Scissors\n");
+            Console.ResetColor();
         }
         public string AskForOpponent()
         {

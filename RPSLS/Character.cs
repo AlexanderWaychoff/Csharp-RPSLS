@@ -16,7 +16,6 @@ namespace RPSLS
         public string paperKey = "2";
         public const string scissors = "Scissors";
         public string scissorsKey = "3";
-        //switch lizard and spock key around to not use algorithm
         public const string lizard = "Lizard";
         public string lizardKey = "5";
         public const string spock = "Spock";
@@ -26,12 +25,10 @@ namespace RPSLS
         public bool checkCorrectInput;
 
         public string[] arrayRPSLS = new string[] {rock, paper, scissors, spock, lizard};
-        //try to implement this once game is ready: public string[] arrayOnomotopoeia = new string[] {"crushes", "covers", "cuts", "poisons", "smashes", "crushes", "disproves", "decapitates", "eats", "vaporizes" };
-        //try and see if this can be used instead of hardcoding: public string instructions = string.Format("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", rockKey, arrayRPSLS[0], paperKey, arrayRPSLS[1], scissorsKey, arrayRPSLS[2], lizardKey, arrayRPSLS[3], spockKey, arrayRPSLS[4]);
 
         public virtual string GetRPSLS()
         {
-            userInput = CheckRPSLS(); //("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", rockKey, arrayRPSLS[0], paperKey, arrayRPSLS[1], scissorsKey, arrayRPSLS[2], lizardKey, arrayRPSLS[3], spockKey, arrayRPSLS[4])
+            userInput = CheckRPSLS(); 
             return userInput;            
         }
         public string CheckRPSLS()
