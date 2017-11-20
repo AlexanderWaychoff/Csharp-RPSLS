@@ -78,6 +78,21 @@ namespace RPSLS
                     }
                 }
             }
+            RestartGame(player1Score, player2Score);
+        }
+        public bool DecideScore(int determinedWinner)
+        {
+            if(determinedWinner == 0)
+            {
+                return isP1Winner = true;
+            }
+            else
+            {
+                return isP1Winner = false;
+            }
+        }
+        public void RestartGame(int player1Score, int player2Score)
+        {
             Console.ForegroundColor = ConsoleColor.Magenta;
             if (player1Score > player2Score)
             {
@@ -89,24 +104,13 @@ namespace RPSLS
             }
             Console.WriteLine("Would you like to play again?  Enter 'y' for yes, or press any key to close the program.");
             Console.ResetColor();
-            restartGame = Console.ReadKey().Key.ToString().ToLower();
-            if(restartGame == "y")
+            restartGame = Console.ReadKey(true).Key.ToString().ToLower();
+            if (restartGame == "y")
             {
+                Console.Clear();
                 player1Score = 0;
                 player2Score = 0;
-                PlayGame newGame = new PlayGame();
                 SetUpGame setUpGame = new SetUpGame();
-            }
-        }
-        public bool DecideScore(int determinedWinner)
-        {
-            if(determinedWinner == 0)
-            {
-                return isP1Winner = true;
-            }
-            else
-            {
-                return isP1Winner = false;
             }
         }
         

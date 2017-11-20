@@ -43,7 +43,7 @@ namespace RPSLS
         public string GetComputerInput()
         {
             string computerRPSLS = opponentAI.GetRPSLS();
-            Console.WriteLine("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", opponentAI.rockKey, opponentAI.arrayRPSLS[0], opponentAI.paperKey, opponentAI.arrayRPSLS[1], opponentAI.scissorsKey, opponentAI.arrayRPSLS[2], opponentAI.lizardKey, opponentAI.arrayRPSLS[3], opponentAI.spockKey, opponentAI.arrayRPSLS[4]);
+            //Console.WriteLine("{0} = {1}; {2} = {3}; {4} = {5}; {6} = {7}; {8} = {9}\n", opponentAI.rockKey, opponentAI.arrayRPSLS[0], opponentAI.paperKey, opponentAI.arrayRPSLS[1], opponentAI.scissorsKey, opponentAI.arrayRPSLS[2], opponentAI.lizardKey, opponentAI.arrayRPSLS[3], opponentAI.spockKey, opponentAI.arrayRPSLS[4]);
             return computerRPSLS;
         }
         public string GetPlayer1Input()

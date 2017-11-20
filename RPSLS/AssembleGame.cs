@@ -26,6 +26,7 @@ namespace RPSLS
         
         public string VerifyInput(string question)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             checkCorrectInput = false;
             do
             {
@@ -39,17 +40,22 @@ namespace RPSLS
             }
             while (!(player1Input == "y" || player1Input == "n"));
             Console.Clear();
+            Console.ResetColor();
             return player1Input;
         }
         public void DisplayMatch(string player2Name)
         {
-            Console.WriteLine("\nThe match between Player 1 and {0} will now begin.  Press any key to continue.", player2Name);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("The match between Player 1 and {0} will now begin.  Press any key to continue.", player2Name);
             Console.ReadKey();
             Console.Clear();
+            Console.ResetColor();
         }
         public void DisplayScore(int player1Score, int player2Score, string player2Name)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Player 1's score is {0}.  {1}'s score is {2}", player1Score, player2Name, player2Score);
+            Console.ResetColor();
         }
         public void AskPlayer2Input(string player2Name)
         {
