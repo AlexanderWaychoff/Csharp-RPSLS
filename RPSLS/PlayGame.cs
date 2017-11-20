@@ -13,6 +13,8 @@ namespace RPSLS
         Computer opponentAI = new Computer();
 
         private string userInput;
+        private int player1Index;
+        private int player2Index;
         private string decideOpponent;
         private string player2Name;
         private int player1Score;
@@ -55,6 +57,30 @@ namespace RPSLS
             Console.WriteLine("{0} enter your choice.  Player 1 will go next.", player2Name);
             userInput = player2.CheckRPSLS();
             return userInput;
+        }
+        public int RoundWinnerOfRPSLS(string player1Input, string player2Input, string player1Name, string player2Name)
+        {
+            player1Index = int.Parse(player1Input);
+            player2Index = int.Parse(player2Input);
+            if (player1Input == player1.rockKey || player2Input == player2.rockKey)
+            {
+                //Character.rock; //determine winner of the choices entered
+            }
+
+            DeclarePlayerInputs(player1Index, player2Index, player1Name, player2Name);
+            return 0;
+        }
+        public void DeclarePlayerInputs(int player1Index, int player2Index, string player1Name, string player2Name)
+        {
+            Console.WriteLine("{0} has played {1} \n \n **while** \n \n {2} has played {3}", player1Name, player1.arrayRPSLS[player1Index], player2Name, player1.arrayRPSLS[player2Index]);
+            if (player1Index == player2Index)
+            {
+                Console.WriteLine("Both players entered {0}.  No score was gained, this round will reset and play again.");
+            }
+            else
+            {
+                //enter who won, may need if else + else
+            }
         }
         public int GetScore()
         {

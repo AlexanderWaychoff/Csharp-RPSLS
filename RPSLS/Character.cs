@@ -61,7 +61,7 @@ namespace RPSLS
                 Console.WriteLine(question);
                 userInput = Console.ReadKey(true).KeyChar.ToString();
                 Console.WriteLine(userInput);
-                 checkCorrectInput = true;
+                checkCorrectInput = true;
             }
             while (!(userInput == rockKey || userInput == paperKey || userInput == scissorsKey || userInput == lizardKey || userInput == spockKey));
             return userInput;

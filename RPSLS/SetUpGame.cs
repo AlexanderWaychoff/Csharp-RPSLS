@@ -9,6 +9,7 @@ namespace RPSLS
     class SetUpGame
     {
         //private string decideOpponent;
+        private string player1Name = "Player 1";
         private string player2Name;
         PlayGame newGame = new PlayGame();
         public SetUpGame()
@@ -35,7 +36,7 @@ namespace RPSLS
             }
             newGame.DisplayPlayerInput(player2Name);
             newGame.player1Input = newGame.GetPlayer1Input();
-            newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input);
+            newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input, player1Name, player2Name);
         }
         
     }

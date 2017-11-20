@@ -59,9 +59,6 @@ namespace RPSLS
         {
             Console.WriteLine("{0} has entered their choice.  Player 1 which option you will go with?", player2Name);
         }
-        public int RoundWinnerOfRPSLS(string player1Input, string player2Input)
-        {
-            return 0;
-        }
+        
     }
 }
