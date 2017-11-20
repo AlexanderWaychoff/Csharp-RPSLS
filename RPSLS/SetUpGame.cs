@@ -27,13 +27,15 @@ namespace RPSLS
             if(player2Name == "Computer")
             {
                 opponentInput = newGame.GetComputerInput();
-                newGame.DisplayPlayerInput(player2Name);
+                //newGame.DisplayPlayerInput(player2Name);
             }
             else
             {
-                newGame.AskPlayer2Input(player2Name);
+                newGame.player2Input = newGame.GetPlayer2Input();
             }
-            newGame.GetPlayer1Input();
+            newGame.DisplayPlayerInput(player2Name);
+            newGame.player1Input = newGame.GetPlayer1Input();
+            newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input);
         }
         
     }

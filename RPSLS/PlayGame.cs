@@ -12,6 +12,7 @@ namespace RPSLS
         Player player2 = new Player();
         Computer opponentAI = new Computer();
 
+        private string userInput;
         private string decideOpponent;
         private string player2Name;
         private int player1Score;
@@ -46,10 +47,15 @@ namespace RPSLS
         }
         public string GetPlayer1Input()
         {
-            player1.CheckRPSLS();
-            return "q";
+            userInput = player1.CheckRPSLS();
+            return userInput;
         }
-
+        public string GetPlayer2Input()
+        {
+            Console.WriteLine("{0} enter your choice.  Player 1 will go next.", player2Name);
+            userInput = player2.CheckRPSLS();
+            return userInput;
+        }
         public int GetScore()
         {
             base.DisplayScore(player1Score, player2Score, player2Name);

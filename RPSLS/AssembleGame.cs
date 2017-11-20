@@ -9,7 +9,8 @@ namespace RPSLS
 {
     public class AssembleGame
     {
-        public string userInput;
+        public string player1Input;
+        public string player2Input;
         public string question;
         public bool checkCorrectInput = false;
 
@@ -19,8 +20,8 @@ namespace RPSLS
         }
         public string AskForOpponent()
         {
-            userInput = VerifyInput("Are you playing against another human?  Type 'y' or type 'n' to play against a computer.");
-            return userInput;
+            player1Input = VerifyInput("Are you playing against another human?  Type 'y' or type 'n' to play against a computer.");
+            return player1Input;
         }
         
         public string VerifyInput(string question)
@@ -33,15 +34,16 @@ namespace RPSLS
                     Console.WriteLine("\n**Your input wasn't valid, please type exactly as indicated.**\n");
                 }
                 Console.WriteLine(question);
-                userInput = Console.ReadKey().Key.ToString().ToLower();
+                player1Input = Console.ReadKey().Key.ToString().ToLower();
                 checkCorrectInput = true;
             }
-            while (!(userInput == "y" || userInput == "n"));
-            return userInput;
+            while (!(player1Input == "y" || player1Input == "n"));
+            Console.Clear();
+            return player1Input;
         }
         public void DisplayMatch(string player2Name)
         {
-            Console.WriteLine("The match between Player 1 and {0} will now begin.  Press any key to continue.", player2Name);
+            Console.WriteLine("\nThe match between Player 1 and {0} will now begin.  Press any key to continue.", player2Name);
             Console.ReadKey();
             Console.Clear();
         }
@@ -56,6 +58,10 @@ namespace RPSLS
         public void DisplayPlayerInput(string player2Name)
         {
             Console.WriteLine("{0} has entered their choice.  Player 1 which option you will go with?", player2Name);
+        }
+        public int RoundWinnerOfRPSLS(string player1Input, string player2Input)
+        {
+            return 0;
         }
     }
 }

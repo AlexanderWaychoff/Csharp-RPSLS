@@ -48,20 +48,22 @@ namespace RPSLS
         }
         public string CheckRPSLS()
         {
+            
             string question = "1 = rock; 2 = paper; 3 = scissors; 4 = lizard; 5 = spock\n";
             checkCorrectInput = false;
             do
             {
                 if (checkCorrectInput)
                 {
+                    Console.Clear();
                     Console.WriteLine("\n**Your input wasn't valid, please type exactly as indicated.**\n");
                 }
                 Console.WriteLine(question);
-                char userInput = Console.ReadKey(true).KeyChar;
+                userInput = Console.ReadKey(true).KeyChar.ToString();
                 Console.WriteLine(userInput);
-                checkCorrectInput = true;
+                 checkCorrectInput = true;
             }
-            while (!(userInput == "0" || userInput == "1" || userInput == "2" || userInput == "3" || userInput == "4"));
+            while (!(userInput == rockKey || userInput == paperKey || userInput == scissorsKey || userInput == lizardKey || userInput == spockKey));
             return userInput;
         
         }
