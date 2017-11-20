@@ -9,12 +9,12 @@ namespace RPSLS
     public class Computer : Character
     {
         Random randomInput = new Random();
-        private int computerChoice;
+        private string computerChoice;
 
         public override string GetRPSLS()
         {
-            computerChoice = randomInput.Next(4);
-            return arrayRPSLS[computerChoice];
+            computerChoice = randomInput.Next(4).ToString();
+            return computerChoice;
         }
 
 

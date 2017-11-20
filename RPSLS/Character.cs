@@ -35,17 +35,6 @@ namespace RPSLS
             return userInput;
             
         }
-        public void CheckRock()
-        {
-            if (winRound)
-            {
-                Console.WriteLine("{0} beats {1}.  {2} scores this round.", rock, scissors, "player");
-            }
-            else
-            {
-                Console.WriteLine("{1} beats {0}.  {2} scores this round.", paper, rock, "player");
-            }
-        }
         public string CheckRPSLS()
         {
             

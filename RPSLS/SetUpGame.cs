@@ -37,11 +37,11 @@ namespace RPSLS
                 }
                 else
                 {
-                    newGame.player2Input = newGame.GetPlayer2Input();
+                    opponentInput = newGame.GetPlayer2Input();
                 }
                 newGame.DisplayPlayerInput(player2Name);
                 newGame.player1Input = newGame.GetPlayer1Input();
-                determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, newGame.player2Input, player1Name, player2Name);
+                determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, opponentInput, player1Name, player2Name);
                 newGame.GetScore(determinedWinner);
 
                 if (determinedWinner > 0)

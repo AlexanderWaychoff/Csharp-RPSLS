@@ -68,7 +68,7 @@ namespace RPSLS
             {
                 declareWinner = 2;
             }
-            else if ((player1Input == "0" && (player2Input == "2" || player2Input == "3")) || (player1Input == "1" && (player2Input == "0" || player2Input == "4")) || (player1Input == "2" && (player2Input == "1" || player2Input == "3")) || (player1Input == "3" && (player2Input == "1" || player2Input == "4")) || (player1Input == "4" && (player2Input == "0" || player2Input == "1")))
+            else if ((player1Input == "0" && (player2Input == "2" || player2Input == "3")) || (player1Input == "1" && (player2Input == "0" || player2Input == "4")) || (player1Input == "2" && (player2Input == "1" || player2Input == "4")) || (player1Input == "3" && (player2Input == "1" || player2Input == "4")) || (player1Input == "4" && (player2Input == "0" || player2Input == "2")))
             {
                 declareWinner = 0;
             }
