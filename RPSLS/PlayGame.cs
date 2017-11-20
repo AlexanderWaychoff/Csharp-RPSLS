@@ -59,24 +59,26 @@ namespace RPSLS
         }
         public int RoundWinnerOfRPSLS(string player1Input, string player2Input, string player1Name, string player2Name)
         {
-            //rock > lizard and scissors, paper > rock and spock, scissors > paper and lizard, lizard > paper spock, spock > rock and scissors
             player1Index = int.Parse(player1Input) - 1;
             player2Index = int.Parse(player2Input) - 1;
             int declareWinner = 0; //0 = player 1 win; 1 = player 2 win; 2 = tie;
-            if (player1Index == player2Index)
-            {
-                declareWinner = 2;
-            }
-            else if ((player1Index == 0 && (player2Index == 2 || player2Index == 3)) || (player1Index == 1 && (player2Index == 0 || player2Index == 4)) || (player1Index == 2 && (player2Index == 1 || player2Index == 3)) || (player1Index == 3 && (player2Index == 1 || player2Index == 4)) || (player1Index == 4 && (player2Index == 0 || player2Index == 2)))
-            {
-                declareWinner = 0;
-                player1Score += 1;
-            }
-            else
-            {
-                declareWinner = 1;
-                player2Score += 1;
-            }
+
+            declareWinner = (5 + player1Index - player2Index) % 5;
+
+            //if (player1Index == player2Index)
+            //{
+            //    declareWinner = 2;
+            //}
+            //else if ((player1Index == 0 && (player2Index == 2 || player2Index == 3)) || (player1Index == 1 && (player2Index == 0 || player2Index == 4)) || (player1Index == 2 && (player2Index == 1 || player2Index == 3)) || (player1Index == 3 && (player2Index == 1 || player2Index == 4)) || (player1Index == 4 && (player2Index == 0 || player2Index == 2)))
+            //{
+            //    declareWinner = 0;
+            //    player1Score += 1;
+            //}
+            //else
+            //{
+            //    declareWinner = 1;
+            //    player2Score += 1;
+            //}
 
             DeclarePlayerInputs(player1Index, player2Index, player1Name, player2Name, declareWinner);
             return declareWinner;
@@ -85,17 +87,19 @@ namespace RPSLS
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("{0} has played {1} \n \n **while** \n \n {2} has played {3}", player1Name, player1.arrayRPSLS[player1Index], player2Name, player1.arrayRPSLS[player2Index]);
-            if (player1Index == player2Index)
+            if (declareWinner == 0)
             {
                 Console.WriteLine("\nBoth players entered {0}.  No score was gained, this round will reset and play again.\n", player1.arrayRPSLS[player1Index]);
             }
-            else if (declareWinner == 0)
+            else if (declareWinner == 1 || declareWinner == 3)
             {
                 Console.WriteLine("\n{0} beats {1}.  {2} wins this round.\n", player1.arrayRPSLS[player1Index], player1.arrayRPSLS[player2Index], player1Name);
+                player1Score += 1;
             }
             else
             {
                 Console.WriteLine("\n{0} beats {1}.  {2} wins this round.\n", player1.arrayRPSLS[player2Index], player1.arrayRPSLS[player1Index], player2Name);
+                player2Score += 1;
             }
             Console.ResetColor();
         }
