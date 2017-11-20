@@ -48,23 +48,22 @@ namespace RPSLS
                     determinedWinner = newGame.RoundWinnerOfRPSLS(newGame.player1Input, opponentInput, player1Name, player2Name);
                     newGame.GetScore();
 
-                    if (determinedWinner == 2)
+                    if (determinedWinner == 0)
                     {
                         i -= 1;
                     }
                     else
                     {
                         isP1Winner = DecideScore(determinedWinner);
+                        if (isP1Winner)
+                        {
+                            player1Score += 1;
+                        }
+                        else if (!(isP1Winner))
+                        {
+                            player2Score += 1;
+                        }
                     }
-                    if (isP1Winner)
-                    {
-                        player1Score += 1;
-                    }
-                    else if (!(isP1Winner))
-                    {
-                        player2Score += 1;
-                    }
-
                 }
                 else
                 {
@@ -82,7 +81,7 @@ namespace RPSLS
         }
         public bool DecideScore(int determinedWinner)
         {
-            if(determinedWinner == 0)
+            if(determinedWinner == 1 || determinedWinner == 3)
             {
                 return isP1Winner = true;
             }
